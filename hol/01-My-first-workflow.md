@@ -3,13 +3,15 @@
 In this hands-on lab your will create your first GitHub Actions Workflow and learn how you can use Actions to automate tasks in your software development lifecycle. If you like more background information, please refer to the [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) pages on GitHub Docs. Good luck! 👍
 
 This hands on lab consists of the following steps:
-- [Creating a repository](#creating-a-repository)
-- [Creating the workflow](#creating-the-workflow)
-- [Viewing your workflow results](#viewing-your-workflow-results)
+- [🔨 Hands-on: My first workflow](#-hands-on-my-first-workflow)
+  - [Reuse or Create a repository](#reuse-or-create-a-repository)
+  - [Creating the workflow](#creating-the-workflow)
+  - [Viewing your workflow results](#viewing-your-workflow-results)
+  - [Summary](#summary)
 
-## Creating a repository
+## Reuse or Create a repository
 
-Go to [The ActionsFundamentals repository in the ps-actions-sandbox organization](https://github.com/ps-actions-sandbox/ActionsFundamentals) and click <kbd>Use this template</kbd>:
+If you have an existing repository you want to use for GitHub Actions hands-on exercises, you can skip this step. Otherwise, go to [The ActionsFundamentals repository in the ps-actions-sandbox organization](https://github.com/ps-actions-sandbox/ActionsFundamentals) and click <kbd>Use this template</kbd>:
 
 <img width="400" alt="2022-09-18_11-24-58" src="https://user-images.githubusercontent.com/5276337/190895393-6fa0fad9-e05c-4fea-8126-a291b087d663.png">
 
@@ -26,8 +28,8 @@ Go to **Actions** | [New Workflow](/../../actions/new) and click on [set up a wo
 1. Rename the file `main.yml` in the `.github/workflows` directory to `github-actions-demo.yml`.
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/5276337/174096754-4e2d7219-9caf-42e8-bfd9-c190762886d3.png">
 
-2. Remove the template content - we want to create the workflow from scratch.
-3. Click <kbd>Ctrl</kbd>+<kbd>Space</kbd> and select name as the first element:
+   We want to create the workflow from scratch.
+2. Click <kbd>Ctrl</kbd>+<kbd>Space</kbd> and select name as the first element:
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/5276337/174097468-8be92e37-7948-4895-b5ed-20a22c5773bc.png">
 
@@ -112,9 +114,6 @@ jobs:
 
 5. Verify your other triggers by modifying the [README.md](/README.md) file:
   - Modify and commit: triggers build (`push`)
-  - Modify and add `[skip ci]` (not triggering the workflow):
-  <img width="350" alt="image" src="https://user-images.githubusercontent.com/5276337/174110845-93d4a38a-9c8a-4336-9b6a-9089ea9a1cfd.png">
-
   - Modify the [README.md](/README.md) file and create a pull request (trigger: `pull_request`)
 
 ## Summary

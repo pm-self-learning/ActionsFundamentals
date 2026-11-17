@@ -4,12 +4,14 @@ In this hands-on lab your will create environments and a staged deployment workf
 > Note: you can only do this on public repos for free accounts. Adding environments for `private` repos is only available for Organizations with a Team account (or higher) and users with GitHub Pro accounts.
 
 This hands on lab is based on [My first workflow](01-My-first-workflow.md) and adds the following steps:
-- [Creating and protecting environments](#creating-and-protecting-environments)
-- [Adding a input for picking environments to manual workflow trigger](#adding-a-input-for-picking-environments-to-manual-workflow-trigger)
-- [Chaining workflow steps and conditional execution](#chaining-workflow-steps-and-conditional-execution)
-- [Reviewing and approving deployments](#reviewing-and-approving-deployments)
+- [🔨 Hands-on: Staged deployments](#-hands-on-staged-deployments)
+  - [Create and protect environments](#create-and-protect-environments)
+  - [Add an input for picking environments to manual workflow trigger](#add-an-input-for-picking-environments-to-manual-workflow-trigger)
+  - [Chain workflow steps and conditional execution](#chain-workflow-steps-and-conditional-execution)
+  - [Review and approve deployments](#review-and-approve-deployments)
+  - [Summary](#summary)
 
-## Creating and protecting environments
+## Create and protect environments
 
 1. Go to [Settings](/../../settings) | [Environments](/../../settings/environments) and click [New environment](/../../settings/environments/new)
 2. Enter the name `Production` and click `Configure environment`
@@ -21,9 +23,9 @@ This hands on lab is based on [My first workflow](01-My-first-workflow.md) and a
 
 <img width="350" alt="image" src="https://user-images.githubusercontent.com/5276337/174113782-70a1b18a-0ab9-49fd-a53e-cb2ea78916e1.png">
 
-5. Create two more environments. `Test` and `Load-Test` without any restrictions.
+5. Create two more environments. `Test` and `Load-Test` without any restrictions (no reviewers).
 
-## Adding a input for picking environments to manual workflow trigger
+## Add an input for picking environments to manual workflow trigger
 
 Modify the workflow yml file you created in hands on lab 1 ('My first workflow').
 Add an input of the type environment to the `workflow_dispatch` trigger that you created previously.
@@ -42,7 +44,7 @@ Add an input of the type environment to the `workflow_dispatch` trigger that you
 
 </details>
 
-## Chaining workflow steps and conditional execution
+## Chain workflow steps and conditional execution
 
 1. Now add 3 jobs to the workflow file:
   - Test: runs on `ubuntu-latest` after `Build`. Only runs when the workflow was triggered manually. Runs on the environment `Test`. The job writes `Testing...` to the workflow log.
@@ -69,31 +71,31 @@ Add an input of the type environment to the `workflow_dispatch` trigger that you
     steps:
       - run: |
           echo "🧪 Testing..."
-          sleep 15
+          sleep 5
 
   Production:
     runs-on: ubuntu-latest
     needs: [Test, Load-Test]
     environment:
       name: Production
-      url: https://writeabout.net
+      url: https://github.blog
     if: github.event.inputs.environment == 'Production'
     steps:
       - run: |
           echo "🚀 Step 1..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 2..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 3..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 4..."
-          sleep 10
+          sleep 5
       - run: |
           echo "🚀 Step 5..."
-          sleep 10
+          sleep 5
 ```
 
 </details>
@@ -102,7 +104,7 @@ Add an input of the type environment to the `workflow_dispatch` trigger that you
 
 <img width="212" alt="image" src="https://user-images.githubusercontent.com/5276337/174119722-9b76d479-e355-414b-a534-03d8634536ef.png">
 
-## Reviewing and approving deployments
+## Review and approve deployments
 
 1. Open the workflow run and start the review.
 

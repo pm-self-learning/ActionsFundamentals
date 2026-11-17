@@ -3,14 +3,16 @@
 In this hands-on lab you will create a [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows#creating-a-reusable-workflow) and a workflow that consumes it. You will learn to pass in parameters to the reusable workflow and use output parameters in the consuming workflow.
 
 This hands on lab consists of the following steps:
-- [Creating a reusable workflow](#creating-a-reusable-workflow)
-- [Adding an output parameter](#adding-an-output-parameter)
-- [Consuming the reusable workflow](#consuming-the-reusable-workflow)
+- [🔨 Hands-on: Reusable workflows](#-hands-on-reusable-workflows)
+  - [Create a reusable workflow](#create-a-reusable-workflow)
+  - [Add an output parameter](#add-an-output-parameter)
+  - [Consume the reusable workflow](#consume-the-reusable-workflow)
+  - [Summary](#summary)
 
-## Creating a reusable workflow
+## Create a reusable workflow
 
-1. Create a [new file](/../../new/main) `.github/workflows/reusable.yml` (paste the file name with the path in the box).
-2. Set the name to `Reusable workflow`.
+1. Create a [new file](/../../new/main?filename=.github%2Fworkflows%2Freusable.yml&workflow_template=blank), with the name reusable.yml.
+2. Set the workflow name to `Reusable workflow`.
 
 <details>
   <summary>Solution</summary>
@@ -55,7 +57,7 @@ jobs:
 
 </details>
 
-## Adding an output parameter
+## Add an output parameter
 
 1. Add an additional step with the id `time` that uses a workflow command to set an output parameter
 named `current-time` to the current date and time (use `$(date)` for that).
@@ -132,10 +134,10 @@ jobs:
 
 </details>
 
-## Consuming the reusable workflow
+## Consume the reusable workflow
 
-1. Create a [new file](/../../new/main) `.github/workflows/reuse.yml` (paste the file name with the path in the box).
-2. Set the name to `Reuse other workflow` and add a manual trigger.
+1. Create a [new file](/../../new/main?filename=.github%2Fworkflows%2Freuse.yml&workflow_template=blank) with the name `reuse.yml`.
+2. Set the workflowname to `Reuse other workflow` and add a manual trigger.
 
 <details>
   <summary>Solution</summary>
