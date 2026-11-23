@@ -127,4 +127,4 @@ Add an input of the type environment to the `workflow_dispatch` trigger that you
 In this lab you have learned to create and protect environments in GitHub and use them in a workflow. You have also learned to conditionally
 execute jobs or steps and to chain jobs using the `needs` keyword.
 
-You can continue with the [Reusable workflows](04-Reusable-workflows.md).
+
